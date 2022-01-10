@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Navbar } from "./components/Navbar";
+import { TextForm } from "./components/TextUtils/TextForm";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Todo  from "./components/MyTodo/Todo";
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar navTitle="Technical Coder" />
+        <Switch>
+          <Route exact path="/">
+            <TextForm formTitle="Enter text to analyze" />
+          </Route>
+          <Route exact path="/mytodo">
+            <div className="container">
+            <Todo />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
