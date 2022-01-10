@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = ({ navTitle }) => {
-  const changeTextTitle = ()=>{
-    document.title = "TextUtils"
-  }
-  const changeTodoTitle = ()=>{
-    document.title = "My Todo List"
-  }
+  const changeTextTitle = () => {
+    document.title = "TextUtils";
+  };
+  const changeTodoTitle = () => {
+    document.title = "My Todo List";
+  };
 
   return (
     <div>
@@ -30,14 +30,26 @@ export const Navbar = ({ navTitle }) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/" onClick={changeTextTitle}>
+                <NavLink
+                  className="nav-link"
+                  exact
+                  to="/"
+                  activeClassName="active"
+                  onClick={changeTextTitle}
+                >
                   TextUtils
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/mytodo" onClick={changeTodoTitle}>
+                <NavLink
+                  className="nav-link"
+                  exact
+                  to="/mytodo"
+                  activeClassName="active"
+                  onClick={changeTodoTitle}
+                >
                   My Todo List
-                </Link>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex">
